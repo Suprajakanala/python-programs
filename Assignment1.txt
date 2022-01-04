@@ -96,17 +96,18 @@ def palindrome():
     return is_palindrome("radar")
 
 #12
-def us_canada():
-    for i in range(99,0,-1):
-        s=f'{i} bottles of beer on the\n wall,{i} bottles of beer.\n Take one down, pass it around ,\n{i-1} bottles of beer on the wall.\n'
-        print(s)
-
-#13
 import re
 def correct(string):
     sentence=re.sub('\ +',' ',string)     # multiple spaces compressed into 1
     final=re.sub('\.','. ',sentence)      # inseart extra space after a period
     return final
+
+#13
+def us_canada():
+    for i in range(99,0,-1):
+        s=f'{i} bottles of beer on the\n wall,{i} bottles of beer.\n Take one down, pass it around ,\n{i-1} bottles of beer on the wall.\n'
+        print(s)
+
 
 #14
 from itertools import permutations
@@ -159,7 +160,9 @@ if __name__ == "__main__":
     print("         ")
 
     print("Q.6: Write a function which accepts a word and a list of words.Return the anagrams of that from the given list. " )
+    print("Anagrams for ant present in given list is : ")
     find_anagrams_in_word_list("ant",["tan", "stand", "at"])
+    print("Anagrams for cat present in given list is : ")
     find_anagrams_in_word_list("cat",["tin", "tan", "act"])
 
     print("         ")
