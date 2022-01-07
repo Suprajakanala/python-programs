@@ -110,9 +110,50 @@ def my_word_search(my_doc_list, my_keyword):
         return "True"
     else:
         return "False"
-my_doc_list = ["The Learn Golang Challenge School", "They bought a scooter", "Schools"]
+my_doc_list = ["The Learn Golang Challenge", "School", "They bought a scooter", "Schools"]
+matched_indexes = []
+keyword = "School"
+i = 0
+length = len(my_doc_list)
+while i < length:
+    if keyword == my_doc_list[i]:
+        matched_indexes.append(i)
+    i += 1
+matched_indexes1 =[]    
+keyword1 = "closed"
+j = 0
+while j < length:
+    if keyword1 == my_doc_list[j]:
+        matched_indexes1.append(j)
+    j += 1
 
 
+#2Q. 11 
+
+def my_multi_word_search(doc_list, keywords):
+    if keywords in doc_list:
+        return "True"
+    else:
+        return "False"
+doc_list = ['He is learning' , 'Scooter', 'driving ', 'They',  'bought a car and a', 'Scooter', 'They', 'are singing']
+
+matched_indexes2 = []
+keywords = "Scooter"
+i = 0
+length = len(doc_list)
+while i < length:
+    if keywords == doc_list[i]:
+        matched_indexes2.append(i)
+    i += 1
+    
+matched_indexes3 = []
+keywords1 = "They"
+i = 0
+length = len(doc_list)
+while i < length:
+    if keywords1 == doc_list[i]:
+        matched_indexes3.append(i)
+    i += 1
 
 
 if __name__ == "__main__":
@@ -123,7 +164,7 @@ if __name__ == "__main__":
 
     print("         ")
 
-    print("2 Q.2: Write a function def is_valid_pin(pin_code) which should return whether or not a string represents a valid Indian pin  code. Consider a valid pin code is any string consisting of exactly 6 digits.")
+    print("2Q.2: Write a function def is_valid_pin(pin_code) which should return whether or not a string represents a valid Indian pin  code. Consider a valid pin code is any string consisting of exactly 6 digits.")
     print("Given code 123456 is valid indian pin code : ", is_valid_pin("123456"))
     print("Given code 1234 is valid indian pin code : ", is_valid_pin("1234"))
     print("Given code 123ab is valid indian pin code : ", is_valid_pin("123ab"))
@@ -131,19 +172,19 @@ if __name__ == "__main__":
 
     print("         ")
     
-    print("2 Q.3: Define a function overlapping() that takes two lists and returns True if they have at least one member in common, False otherwise.")
+    print("2Q.3: Define a function overlapping() that takes two lists and returns True if they have at least one member in common, False otherwise.")
     print("Given 2 lists have common numbers : ", is_member2([1,2,3,4],[4,5,6,7]))
     print("Given 2 lists have common numbers : ", is_member2([1,2,3],[1,2,3]))
     
     print("         ")
 
-    print("2 Q.4 : find length of words in a given list.")
+    print("2Q.4 : find length of words in a given list.")
     words = ['i', 'am', 'learning', 'python']
     print("Length of words in a given list is ['i', 'am', 'learning', 'python'] : ", map_to_lengths_for(words))
     
     print("        ")
       
-    print("2 Q.5 : Write a program to find Longest word in a given list.")
+    print("2Q.5 : Write a program to find Longest word in a given list.")
     print("The Longest word in the given list a is : ")
     find_longest_word(a)
     print("The Longest word in the given list b is : ")
@@ -152,30 +193,39 @@ if __name__ == "__main__":
     print("         ")
     
     print("2 Q.6: Write a version of a palindrome recognizer that also accepts phrase palindromes.")
-    print(palindrome_version("was it a rat i saw?"))
+    print("(was it a rat i saw?) is a palindrome : ", palindrome_version("was it a rat i saw?"))
+    print("(mom) is a palindrome : ", palindrome_version("mom"))
     
     print("       ")
     
-    print("2 Q7: Write a function char_freq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Python dictionary.")
+    print("2Q.7: Write a function char_freq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Python dictionary.")
     print(char_frequency("abbabcbdbabdbdbabababcbcba"))
     print(char_frequency("hello"))
     print(char_frequency("hi"))
 
     print("       ")
    
-    print("2 Q8: In Cryptography , a caesar cipher is a very simple techniques in which each letter in the plain text is replaced by a letter some fixed number of positions down the alphabet. Your task in this exercise is to implement an encoder/decoder of ROT-13. Once you're done, you will be able to read the following secret message:Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!")
-    print("After decoded the message is : ", encoder_decoder("V zhpu cersre Pnrfne fnynq!"))
-    print("After decoded the message is : ", encoder_decoder("abcdefghijklmnopqrstuvwxyz."))
+    print("2Q.8: In Cryptography , a caesar cipher is a very simple techniques in which each letter in the plain text is replaced by a letter some fixed number of positions down the alphabet. Your task in this exercise is to implement an encoder/decoder of ROT-13. Once you're done, you will be able to read the following secret message:Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!")
+    print("After decoded (V zhpu cersre Pnrfne fnynq!) the message is : ", encoder_decoder("V zhpu cersre Pnrfne fnynq!"))
+    print("After decoded (abcdefghijklmnopqrstuvwxyz.)the message is : ", encoder_decoder("abcdefghijklmnopqrstuvwxyz."))
     
     print("       ")
     
-    print("2 Q.9 : Write a program to find frequency of each word in a given string : ")
+    print("2Q.9 : Write a program to find frequency of each word in a given string : ")
     freq('apple mango apple orange orange apple guava mango mango')
     freq('she is running and jumping ')
 
     print("          ")
     
-    print(" school is present in a given list : ", my_word_search(my_doc_list, "school"))
-    print("closed is present in a given list : ", my_word_search(my_doc_list, "and"))
-
-
+    print("2Q.10 : Write a function which accepts a list of documents and a keyword (that is to be searched) and returns list of the index values from the original list for all documents containing the keyword.")
+    print("School is present in given list : ", my_word_search(my_doc_list, keyword))
+    print(f' at index :  {matched_indexes}')
+    print("closed is present in given list : ", my_word_search(my_doc_list, keyword1))
+    print(f' at index :  {matched_indexes1}')
+    
+    print("         ")
+    
+    print("2Q.11 : Extend the function written for Q 10 to support multiple keywords,instead of one.In this case the function returns a dictionary with keyword as the " "key" "and the list of indexes as the value.")
+    print("School, They are present in given list : ", my_multi_word_search(doc_list, keywords))
+    print(f' at indexes :  {matched_indexes2}{matched_indexes3} ')
+    
