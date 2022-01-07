@@ -1,0 +1,232 @@
+#1
+def max(a, b):
+    if a >= b:
+        return a
+    else:
+        return b
+
+#2        
+def perfectnumber(n):
+    sum = 0
+    for i in range(1, n):
+        if(n % i == 0):
+            sum = sum + i
+    return sum == n   
+    
+#3       
+def is_isogram(word):
+    # Convert the word or sentence in lower case letters.
+    clean_word = word.lower()
+    # Make an empty list to append unique letters
+    letter_list = []
+    for letter in clean_word:
+        if letter.isalpha():
+            if letter in letter_list:
+                return False
+            letter_list.append(letter)
+    return True
+
+#4
+def elementwise_greater_than(mylist, threshold):
+    result = []
+    for index, val in enumerate(mylist):
+        if val > threshold:
+            result.append(True)
+        else:
+            result.append(False)
+    return print(result)
+    
+#5    
+def findLen(str):
+    count = 0    
+    for i in str:
+        count += 1
+    return count
+
+#6
+def anagram(str1,str2):
+    return sorted(str1) == sorted(str2)
+def my_anagram(str1,str_list):
+    anagrams = []
+    for word in str_list:
+        if len(word) == len(str1):
+            if (anagram(str1,word)):
+                anagrams.append(word)
+                print(word)
+
+    
+#7        
+def vowel(char):
+    if char == "a"or char =="e" or char=="i" or char == "o" or char=="u" or char == "A"or char =="E" or char=="I" or char == "O" or char=="U": 
+        return "True"
+    else:
+        return "False "
+
+#8
+def sum(li):
+    sum=0
+    for i in li:
+        sum=sum+i
+    return sum
+def multiply(li):
+    mul=1
+    for i in li:
+        mul=mul*i
+    return mul
+
+#9   
+def reverse(string):
+    string = string[::-1]
+    return string
+
+#10
+def digital_root(num):
+    if len(str(num)) == 1:
+        return num
+    sum = 0
+    for i in str(num):
+        sum += int(i)
+    return digital_root(sum)
+
+#11
+def is_palindrome(string):
+    return string == string[::-1]
+def palindrome():
+    print(is_palindrome("radar"))
+    return is_palindrome("radar")
+
+#12
+import re
+def correct(string):
+    sentence=re.sub('\ +',' ',string)     # multiple spaces compressed into 1
+    final=re.sub('\.','. ',sentence)      # inseart extra space after a period
+    return final
+
+#13
+def us_canada():
+    for i in range(99,0,-1):
+        s=f'{i} bottles of beer on the\n wall,{i} bottles of beer.\n Take one down, pass it around ,\n{i-1} bottles of beer on the wall.\n'
+        print(s)
+
+
+#14
+from itertools import permutations
+def Permutations(str):
+     permList = permutations(str)
+     for perm in list(permList):
+         print (''.join(perm))
+
+
+if __name__ == "__main__":
+    print("Q.1: Define a function max() that takes 2 numbers as arguments and returns the largest of them.")
+    print("maximum of 2,4 is : ",max(2, 4))
+    print("maximum of 5,8 is : ",max(5, 8))
+    print("maximum of 6,9 is : ",max(6, 9))
+    
+    print("         ")
+    
+    print("Q.2: Write a python function to test if a given number is perfect number or not. if it is a perfectnumber return True otherwise false")
+    print("perfectNumber(6) : ", perfectnumber(6))
+    print("perfectNumber(9) : ", perfectnumber(9))
+    print("perfectnumber(28) : ", perfectnumber(28))
+    
+    print("         ")
+    
+    print("Q.3: write a python function to test, if a given word is an perfect isogram or not.")
+    print("isogram(Hospital) : ", is_isogram("Hospital"))       
+    print("isogram(isolation) : ", is_isogram("isolation"))    # o repeated  
+    print("isogram(Government) : ", is_isogram("Government"))  # e repeated
+    print("isogram(american) : ", is_isogram("american"))  
+    
+    print("         ")
+    
+    print("Q.4 : if l[i] is greater than threshold return True otherwise false. ")
+    print("number greater than threshold value ([1,2,3,4],2) : " , elementwise_greater_than([1,2,3,4],2))
+    print("number greater than threshold value ([4,5,6,7],6) : ", elementwise_greater_than([4,5,6,7],6))
+    print("number greater than threshold value ([2,3,4,5],1) : ", elementwise_greater_than([2,3,4,5],1))
+    print("number greater than threshold value ([7,8,2,3],5) : ", elementwise_greater_than([7,8,2,3],5))
+    
+    print("         ")
+    
+    print("Q.5: Define a function that computes the length of a  given string.")
+    print("Length of string (company) is : ",findLen("company"))
+    print("Length of string (car) is : ",findLen("car"))
+    print("Length of string (bike) is : ",findLen("bike"))
+    print("Length of string (laptap) is : ",findLen("laptap"))
+    
+    print("         ")
+
+    print("Q.6: Write a function which accepts a word and a list of words.Return the anagrams of that from the given list. " )
+    print("Anagrams for ant present in given list is : ")
+    my_anagram("ant",["tan", "stand", "at"])
+    print("Anagrams for cat present in given list is : ")
+    my_anagram("cat",["tin", "tan", "act"])
+
+    print("         ")
+    
+    print("Q.7. Write a function that takes a character and returns True if it is a vowel, False otherwise.")
+    print ("Length of string (company) is : ", vowel('a'))
+    print ("Length of string (company) is : ", vowel('b'))
+    print ("Length of string (company) is : ", vowel('c'))
+    print ("Length of string (company) is : ", vowel('I'))
+    
+    print("         ")
+    
+    print("Q.8: Define a function sum() and multiply() ,print that sums and multiplies of all the numbers in a given lists. ")
+    print("sum of all numbers in a given list is :", sum([1,2,3,4,5]),", multiply of all numbers in a given list is :", multiply([1,2,3,4]))
+    print("sum of all numbers in a given list is :", sum([2,3,4])," , multiply of all numbers in a given list is :",multiply([2,3,4]))
+    print("sum of all numbers in a given list is :", sum([3,4,5])," , multiply of all numbers in a given list is :",multiply([3,4,5]))
+    print("sum of all numbers in a given list is :", sum([4,5,6])," , multiply of all numbers in a given list is :",multiply([4,5,6]))
+    
+    print("         ")
+    
+    print("Q.9: Define a function reverse() that computes the reversal of a string.")
+    print("The reverse of given string is : ",end="")
+    print(reverse("I am testing"))
+    print("The reverse of given string is : ",end="")
+    print(reverse("he is running"))
+    print("The reverse of given string is : ",end="")
+    print(reverse("i am an employee"))
+    print("The reverse of given string is : ",end="")
+    print(reverse("This is a laptap"))
+    
+    print("         ")
+    
+    print("Q.10: Write a function to find the digital root of a number.")
+    print("digital root of 11 is: ",(digital_root(11)))
+    print("digital root of 12 is: ",(digital_root(12)))
+    print("digital root of 13 is: ",(digital_root(13)))
+    print("digital root of 14 is: ",(digital_root(14)))
+    
+    print("         ")
+    
+    print("Q.11 : Write a program to find given string is palindrome or not.")
+    print("Given string = radar is palindrome : ", palindrome())
+    
+    print("         ")
+    
+    print("Q.12 : Define a simple spelling Correction function correct() that takes a string and sees to it that 1) two are more occurences of the space character is compressed into one, and 2) inserts an extra space after a period if the period is directly followed by a letter.")
+    print(correct("This  is very funny and  cool.Indeed! "))
+    print(correct("This is     hot")) 
+    print(correct("she is a    very talented.  Intelligent"))
+    print(correct("what      is this one")) 
+    
+    print("         ")
+    
+    print("Q.13 :Write aprogram on 99 Bottles of beer is a traditional song in the United States and Canada. It is popular to sing on long trips, as it has a very repetitive format which is easy to memorize, and can take a long time to sing. The song's simple lyrics are as follows: ")
+    print("  99  bottles of beer on the wall,99  bottles of beer. Take one down, pass it around,98  bottles of beer on the wall.")
+    print("The same verse is repeated, each time with one fewer bottle.The song is completed when the singer or singers is reach zero.")
+    us_canada()
+    
+    print("         ")
+     
+    print("Q.14: Write a function which accepts a string and returns a list of all possible permutations of the given string.")
+    print("Permutations of string = pro  is : ")
+    Permutations("pro")
+    print("Permutations of string = a is : ")
+    Permutations("a")
+    print("Permutations of string = ab is : ")
+    Permutations("ab")
+    print("Permutations of string = car is : ")
+    Permutations("car")
+    
